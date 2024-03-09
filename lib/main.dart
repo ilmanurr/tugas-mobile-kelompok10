@@ -14,7 +14,7 @@ class KartuNama extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Text(
-              'Kelompok 10',
+              'Kelompok 11',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
