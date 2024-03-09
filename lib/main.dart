@@ -16,9 +16,9 @@ class KartuNama extends StatelessWidget {
             child: Text(
               'Kelompok 10',
               style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2,
               ),
             ),
           ),
@@ -34,11 +34,11 @@ class KartuNama extends StatelessWidget {
                   height: 30,
                 ),
 
-                  // athip's profile
-                  CircleAvatar(
-                    radius: 100,
-                    backgroundImage: AssetImage('images/pink2.jpg'),
-                  ),
+                // athip's profile
+                CircleAvatar(
+                  radius: 100,
+                  backgroundImage: AssetImage('images/pink2.jpg'),
+                ),
                 Text(
                   'Salsabilla Athifah Y.',
                   style: TextStyle(
