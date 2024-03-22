@@ -44,7 +44,7 @@ class _HalamanQuizState extends State<HalamanQuiz> {
     Quiz('Berapa jumlah prodi yang ada di Fakultas Vokasi UNESA?', '20', '10', '30', '15', '10'), //8
     Quiz('Program studi D4 Manajemen Informatika berdiri sejak tahun?', '2012', '2018', '2019', '2020', '2019'), //9
     Quiz('Sebelum berdiri sendiri, program studi D4 Manajemen Informatika tergabung dalam jurusan apa?', 'Teknik Elektro', 'Teknik Listrik', 'Teknik Informatika', 'Teknik Mesin', 'Teknik Informatika'), //10
-    Quiz('Siapa kaprodi Manajemen Informatika saat ini', 'Asmunin', 'Dodik Arwin Darmawan', 'I Gde Agung Sri Sidhimantra',
+    Quiz('Siapa kaprodi Manajemen Informatika saat ini?', 'Asmunin', 'Dodik Arwin Darmawan', 'I Gde Agung Sri Sidhimantra',
         'Ari Kurniawan', 'Dodik Arwin Darmawan'), //11
     Quiz('Sebelum menjadi program studi D4 Manajemen Informatika, nama program studi ini adalah...', 'S1 Manajemen Informatika', 'D1 Manajemen Informatika', 'D2 Manajemen Informatika', 'D3 Manajemen Informatika', 'D3 Manajemen Informatika'), //12
     Quiz('Program studi D3 Manajemen Informatika telah hadir di UNESA sejak tahun?', '2010', '2011', '2012', '2013', '2012'), //13
