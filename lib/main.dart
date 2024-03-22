@@ -1,7 +1,204 @@
 import 'package:flutter/material.dart';
+import 'package:i_love_mie/Quiz.dart';
 
 void main() {
-  runApp(KartuNama());
+  runApp(QuizMaba());
+}
+
+class QuizMaba extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.grey[800],
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: HalamanQuiz(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HalamanQuiz extends StatefulWidget {
+  @override
+  State<HalamanQuiz> createState() => _HalamanQuizState();
+}
+
+class _HalamanQuizState extends State<HalamanQuiz> {
+  List<Widget> skorMaba = [];
+
+  List<Quiz> bankSoal = [
+    Quiz('UNESA didirikan sejak tahun?', '1954', '1964', '1974', '1984', '1964'), //1
+    Quiz('Dimanakah UNESA berada?', 'Surabaya', 'Surakarta', 'Semarang', 'Subang',
+        'Surabaya'), //2
+    Quiz('Kampus pertama UNESA terletak di?', 'Jemursari', 'Wiyung', 'Ketintang', 'Lidah Wetan', 'Ketintang'), //3
+    Quiz('UNESA memiliki 2 kampus di Surabaya, dimanakah letaknya?', 'Ketintang dan Lidah Wetan', 'Ketintang dan Gedangan', 'Lidah Wetan dan Wonokromo', 'Lidah Wetan dan Gubeng', 'Ketintang dan Lidah Wetan'),
+    Quiz('Akreditasi UNESA saat ini adalah...', 'Unggul', 'Baik sekali', 'Baik', 'Tidak terakreditasi', 'Unggul'), //4
+    Quiz('Dimanakah letak Fakultas Vokasi UNESA?', 'Magetan', 'Lidah Kulon', 'Lidah Wetan',
+        'Ketintang', 'Ketintang'), //5
+    Quiz('Fakultas Vokasi UNESA didirikan pada tahun?', '2019', '2020', '2021', '2022', '2021'), //6
+    Quiz('Siapakah dekan Fakultas Vokasi UNESA saat ini?', 'Dr. Suprapto', 'Dr. Warju', 'I Gde Agung Sri Sidhimantra', 'Dodik Arwin Darmawan', 'Dr. Suprapto'), //7
+    Quiz('Berapa jumlah prodi yang ada di Fakultas Vokasi UNESA?', '20', '10', '30', '15', '10'), //8
+    Quiz('Program studi D4 Manajemen Informatika berdiri sejak tahun?', '2012', '2018', '2019', '2020', '2019'), //9
+    Quiz('Sebelum berdiri sendiri, program studi D4 Manajemen Informatika tergabung dalam jurusan apa?', 'Teknik Elektro', 'Teknik Listrik', 'Teknik Informatika', 'Teknik Mesin', 'Teknik Informatika'), //10
+    Quiz('Siapa kaprodi Manajemen Informatika saat ini?', 'Asmunin', 'Dodik Arwin Darmawan', 'I Gde Agung Sri Sidhimantra',
+        'Ari Kurniawan', 'Dodik Arwin Darmawan'), //11
+    Quiz('Sebelum menjadi program studi D4 Manajemen Informatika, nama program studi ini adalah...', 'S1 Manajemen Informatika', 'D1 Manajemen Informatika', 'D2 Manajemen Informatika', 'D3 Manajemen Informatika', 'D3 Manajemen Informatika'), //12
+    Quiz('Program studi D3 Manajemen Informatika telah hadir di UNESA sejak tahun?', '2010', '2011', '2012', '2013', '2012'), //13
+    Quiz('Sebelum Fakultas Vokasi didirikan, prodi Manajemen Informatika berada di fakultas apa?', 'Fakultas Hukum', 'Fakultas Teknik', 'Fakultas Bahasa dan Seni', 'Fakultas Ekonomi dan Bisnis', 'Fakultas Teknik'), //14
+    Quiz('Nama himpunan mahasiswa D4 Manajemen Informatika adalah...', 'Himafortic', 'Himafortie', 'Himainfor', 'Himaticfor', 'Himafortic') //15
+  ];
+  int nomorPertanyaan = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+          flex: 3,
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+              child: Center(
+                child: Text(
+                  bankSoal[nomorPertanyaan].pertanyaan,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+                child: ElevatedButton(
+                  child: Text(
+                    bankSoal[nomorPertanyaan].jawabanA,
+                    style: TextStyle(color: Colors.black, fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      // jika jawaban benar
+                      if (bankSoal[nomorPertanyaan].jawabanA ==
+                          bankSoal[nomorPertanyaan].kunciJawaban) {
+                        skorMaba.add(Icon(
+                          Icons.check,
+                          color: Colors.green,
+                        ));
+                        // tambahkan nomor pertanyaan
+                        nomorPertanyaan++;
+                      } else {
+                        // jika jawaban salah
+                        skorMaba.add(Icon(
+                          Icons.close,
+                          color: Colors.red,
+                        ));
+                      }}
+                  );
+                },
+            ),
+          )
+        ),
+        Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: ElevatedButton(
+                child: Text(
+                  bankSoal[nomorPertanyaan].jawabanB,
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                ),
+                onPressed: () {
+                  setState(() {
+                    // jika jawaban benar
+                    if (bankSoal[nomorPertanyaan].jawabanB ==
+                        bankSoal[nomorPertanyaan].kunciJawaban) {
+                      skorMaba.add(Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ));
+                      // tambahkan nomor pertanyaan
+                      nomorPertanyaan++;
+                    } else {
+                      // jika jawaban salah
+                      skorMaba.add(Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ));
+                    }}
+                  );
+                },
+              ),
+            )
+        ),
+        Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: ElevatedButton(
+                child: Text(
+                  bankSoal[nomorPertanyaan].jawabanC,
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                ),
+                onPressed: () {
+                  setState(() {
+                    // jika jawaban benar
+                    if (bankSoal[nomorPertanyaan].jawabanC ==
+                        bankSoal[nomorPertanyaan].kunciJawaban) {
+                      skorMaba.add(Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ));
+                      // tambahkan nomor pertanyaan
+                      nomorPertanyaan++;
+                    } else {
+                      // jika jawaban salah
+                      skorMaba.add(Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ));
+                    }}
+                  );
+                },
+              ),
+            )
+        ),
+        Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: ElevatedButton(
+                child: Text(
+                  bankSoal[nomorPertanyaan].jawabanD,
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                ),
+                onPressed: () {
+                  setState(() {
+                    // jika jawaban benar
+                    if (bankSoal[nomorPertanyaan].jawabanD ==
+                        bankSoal[nomorPertanyaan].kunciJawaban) {
+                      skorMaba.add(Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      ));
+                      // tambahkan nomor pertanyaan
+                      nomorPertanyaan++;
+                    } else {
+                      // jika jawaban salah
+                      skorMaba.add(Icon(
+                        Icons.close,
+                        color: Colors.red,
+                      ));
+                    }}
+                  );
+                },
+              ),
+            )
+        ),
+        Row(children: skorMaba)
+      ],
+    );
+  }
 }
 
 class KartuNama extends StatelessWidget {
